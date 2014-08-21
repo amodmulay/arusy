@@ -21,7 +21,7 @@ public class GarageLevel {
         return level;
     }
 
-    public int getNumberofSlots() {
+    public int getNumberOfSlots() {
         return numberofSlots;
     }
 }

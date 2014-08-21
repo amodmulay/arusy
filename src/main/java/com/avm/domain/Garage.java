@@ -27,7 +27,7 @@ public class Garage {
     private int calculateParkingSlots() {
         int slotCount = 0;
         for (GarageLevel garageLevel : garageLevelList) {
-            slotCount = +garageLevel.getNumberofSlots();
+            slotCount = +garageLevel.getNumberOfSlots();
         }
         return slotCount * garageLevelList.size();
     }

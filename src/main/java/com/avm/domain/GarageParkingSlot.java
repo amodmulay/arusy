@@ -12,8 +12,13 @@ public class GarageParkingSlot {
 
     private int slotId;
     private int slotLevel;
-    private boolean isEmpty = true;
+    private boolean isEmpty = Boolean.TRUE;
 
+    /**
+     *
+     * @param slotId
+     * @param slotLevel
+     */
     public GarageParkingSlot(final int slotId, final int slotLevel) {
         this.slotId = slotId;
         this.slotLevel = slotLevel;
@@ -22,17 +27,8 @@ public class GarageParkingSlot {
     public int getSlotId() {
         return slotId;
     }
-
-    public void setSlotId(int slotId) {
-        this.slotId = slotId;
-    }
-
     public int getSlotLevel() {
         return slotLevel;
-    }
-
-    public void setSlotLevel(int slotLevel) {
-        this.slotLevel = slotLevel;
     }
 
     public boolean isEmpty() {
