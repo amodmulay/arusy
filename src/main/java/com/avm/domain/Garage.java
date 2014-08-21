@@ -5,9 +5,8 @@ import java.util.List;
 /**
  * Created with IntelliJ IDEA.
  * User: amodmulay
- * Date: 8/20/14
- * Time: 9:38 PM
- * To change this template use File | Settings | File Templates.
+ * Represents a parking building. This is hierarchically the top most in the pecking order.
+ * It holds the levels and the total count of parking spots/slots
  */
 public class Garage {
 

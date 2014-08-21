@@ -1,11 +1,11 @@
 package com.avm.domain;
 
 /**
- * Created with IntelliJ IDEA.
- * User: amodmulay
- * Date: 8/20/14
- * Time: 9:35 PM
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: amodmulay
+ * 
+ * Represents a single entity in the {@link Garage}. It can either be a Car or a
+ * Motorcycle. Every Vehicle entity contains a license number which can exist
+ * only once in the system.
  */
 public class Vehicle {
 
@@ -23,5 +23,31 @@ public class Vehicle {
 
     public String getLicenceNumber() {
         return licenceNumber;
+    }
+
+    @Override
+    public boolean equals(final Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Vehicle)) {
+            return false;
+        }
+
+        Vehicle vehicle = (Vehicle) o;
+
+        if (!licenceNumber.equals(vehicle.licenceNumber)) {
+            return false;
+        }
+        if (type != vehicle.type) {
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        return licenceNumber.hashCode();
     }
 }

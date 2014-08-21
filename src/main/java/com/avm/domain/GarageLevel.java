@@ -1,11 +1,11 @@
 package com.avm.domain;
 
 /**
- * Created with IntelliJ IDEA.
- * User: amodmulay
- * Date: 8/20/14
- * Time: 10:00 PM
- * To change this template use File | Settings | File Templates.
+ * Created with IntelliJ IDEA. User: amodmulay
+ * 
+ * Represents a Level/Floor in a {@link Garage}. GarageLevel is defined by the
+ * level it belongs to and also contains information regarding number of parking
+ * slots that are available at that level
  */
 public class GarageLevel {
 
