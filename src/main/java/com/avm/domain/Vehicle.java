@@ -10,44 +10,18 @@ package com.avm.domain;
 public class Vehicle {
 
     private VehicleType type;
-    private String licenceNumber;
+    private NumberPlate numberPlate;
 
     public Vehicle(final VehicleType type, final String licenceNumber) {
         this.type = type;
-        this.licenceNumber = licenceNumber;
+        this.numberPlate = new NumberPlate(licenceNumber);
     }
 
     public VehicleType getType() {
         return type;
     }
 
-    public String getLicenceNumber() {
-        return licenceNumber;
+    public NumberPlate getNumberPlate() {
+        return numberPlate;
     }
-
-    @Override
-    public boolean equals(final Object o) {
-        if (this == o) {
-            return true;
-        }
-        if (!(o instanceof Vehicle)) {
-            return false;
-        }
-
-        Vehicle vehicle = (Vehicle) o;
-
-        if (!licenceNumber.equals(vehicle.licenceNumber)) {
-            return false;
-        }
-        if (type != vehicle.type) {
-            return false;
-        }
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        return licenceNumber.hashCode();
-    }
-}
+ }
