@@ -10,12 +10,14 @@ import java.util.List;
 /**
  * Created with IntelliJ IDEA.
  * User: amodmulay
- * Date: 8/21/14
- * Time: 8:25 PM
- * To change this template use File | Settings | File Templates.
+ * Creates {@link GarageParkingSlot} according to the Garage configuration
  */
 public class GarageService {
 
+    /**
+     *
+     * @param garage
+     */
     public void buildGarage(final Garage garage) {
         List<GarageLevel> garageLevels = garage.getGarageLevelList();
         for (GarageLevel garageLevel : garageLevels) {
@@ -24,6 +26,5 @@ public class GarageService {
                 ParkingSlotPool.checkInSlot(new GarageParkingSlot(i,garageLevel.getLevel()));
             }
         }
-
     }
 }
