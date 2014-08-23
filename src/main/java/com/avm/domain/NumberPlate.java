@@ -12,7 +12,6 @@ public class NumberPlate {
     private String number;
 
     /**
-     *
      * @param number Vehicle number plate value
      */
     public NumberPlate(final String number) {

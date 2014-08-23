@@ -1,8 +1,10 @@
 package com.avm.domain;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA. User: amodmulay
- * 
+ * <p/>
  * Represents a Level/Floor in a {@link Garage}. GarageLevel is defined by the
  * level it belongs to and also contains information regarding number of parking
  * slots that are available at that level
@@ -10,18 +12,18 @@ package com.avm.domain;
 public class GarageLevel {
 
     private int level;
-    private int numberofSlots;
+    private List<GarageParkingSlot> garageParkingSlots;
 
-    public GarageLevel(final int level, final int numberofSlots) {
+    public GarageLevel(final int level, final List<GarageParkingSlot> garageParkingSlots) {
         this.level = level;
-        this.numberofSlots = numberofSlots;
+        this.garageParkingSlots = garageParkingSlots;
     }
 
     public int getLevel() {
         return level;
     }
 
-    public int getNumberOfSlots() {
-        return numberofSlots;
+    public List<GarageParkingSlot> getGarageParkingSlots() {
+        return garageParkingSlots;
     }
 }

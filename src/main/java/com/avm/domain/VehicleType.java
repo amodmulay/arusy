@@ -7,5 +7,6 @@ package com.avm.domain;
  */
 public enum VehicleType {
     MOTORCYCLE,
-    CAR;
+    CAR,
+    BLOCKING;
 }

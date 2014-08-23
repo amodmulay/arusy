@@ -2,19 +2,23 @@ package com.avm.domain;
 
 /**
  * Created with IntelliJ IDEA. User: amodmulay
- * 
+ * <p/>
  * Represents a single entity in the {@link Garage}. It can either be a Car or a
  * Motorcycle. Every Vehicle entity contains a license number which can exist
  * only once in the system.
  */
-public class Vehicle {
+public abstract class Vehicle {
 
-    private VehicleType type;
-    private NumberPlate numberPlate;
+    protected VehicleType type;
+    protected NumberPlate numberPlate;
+    protected float chargePerHour;
 
-    public Vehicle(final VehicleType type, final String licenceNumber) {
-        this.type = type;
-        this.numberPlate = new NumberPlate(licenceNumber);
+    public Float getChargePerHour() {
+        return chargePerHour;
+    }
+
+    public void setChargePerHour(final Float chargePerHour) {
+        this.chargePerHour = chargePerHour;
     }
 
     public VehicleType getType() {
@@ -24,4 +28,4 @@ public class Vehicle {
     public NumberPlate getNumberPlate() {
         return numberPlate;
     }
- }
+}

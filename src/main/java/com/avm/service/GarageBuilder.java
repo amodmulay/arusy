@@ -1,24 +1,27 @@
 package com.avm.service;
 
-import com.avm.domain.Garage;
-import com.avm.domain.GarageLevel;
+import com.avm.domain.GarageConfiguration;
 import com.avm.domain.GarageParkingSlot;
-import com.avm.util.ParkingSlotPool;
-
-import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created with IntelliJ IDEA.
  * User: amodmulay
  * Creates {@link GarageParkingSlot} according to the Garage configuration
  */
-public class GarageService {
+@Component
+public class GarageBuilder {
+
+    @Autowired
+    private GarageConfiguration garageConfiguration;
+
 
     /**
-     *
+     * Builds the garage depending on the state of the garage object
      * @param garage
      */
-    public void buildGarage(final Garage garage) {
+   /* public void buildGarage(final Garage garage) {
         List<GarageLevel> garageLevels = garage.getGarageLevelList();
         for (GarageLevel garageLevel : garageLevels) {
             int slots = garageLevel.getNumberOfSlots();
@@ -26,5 +29,5 @@ public class GarageService {
                 ParkingSlotPool.checkInSlot(new GarageParkingSlot(i,garageLevel.getLevel()));
             }
         }
-    }
+    }*/
 }

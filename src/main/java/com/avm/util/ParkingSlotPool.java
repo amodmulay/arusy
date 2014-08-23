@@ -3,7 +3,6 @@ package com.avm.util;
 import com.avm.domain.GarageParkingSlot;
 
 import java.util.LinkedList;
-import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -32,24 +31,25 @@ public class ParkingSlotPool {
 
     /**
      * Returns an empty slot and adds it to the list of occupied slots
+     *
      * @return
      */
     public static GarageParkingSlot checkOutSlot() {
         GarageParkingSlot garageParkingSlot = emptySlot.removeFirst();
         garageParkingSlot.setEmpty(Boolean.FALSE);
         addToOccupiedList(garageParkingSlot);
-        return  garageParkingSlot;
+        return garageParkingSlot;
     }
 
     private static void addToOccupiedList(final GarageParkingSlot garageParkingSlot) {
         occupiedSlot.add(garageParkingSlot);
     }
 
-    public static int getEmptySlotSize(){
+    public static int getEmptySlotSize() {
         return emptySlot.size();
     }
 
-    public static int getOccupiedSlotSize(){
+    public static int getOccupiedSlotSize() {
         return occupiedSlot.size();
     }
 
