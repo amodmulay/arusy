@@ -6,9 +6,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created with IntelliJ IDEA.
  * User: amodmulay
- * Date: 8/23/14
- * Time: 7:00 PM
- * To change this template use File | Settings | File Templates.
+ * Garage Configuration object used to load the garage configuration from the arusy-config.properties file.
  */
 @Component
 public class GarageConfiguration {
@@ -28,12 +26,10 @@ public class GarageConfiguration {
         return slotsPerLevel.split(",");
     }
 
-    public boolean validateConfiguration() {
+    public void validateConfiguration() {
         if (null == garageLevels || null == slotsPerLevel)
-            return Boolean.FALSE;
+            throw new IllegalStateException("Garage cannot exist without parking slots. Check config file");
         else if (getSlotsPerLevel().length != getGarageLevels())
-            return Boolean.FALSE;
-        else
-            return Boolean.TRUE;
+            throw new IllegalStateException("Check config file slot count");
     }
 }
