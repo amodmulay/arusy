@@ -1,7 +1,7 @@
 package com.avm.service;
 
 import com.avm.domain.GarageConfiguration;
-import jdk.nashorn.internal.ir.annotations.Ignore;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
