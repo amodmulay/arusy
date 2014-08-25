@@ -3,9 +3,9 @@ package com.avm.service;
 /**
  * Created with IntelliJ IDEA.
  * User: amodmulay
- * Date: 8/23/14
- * Time: 2:02 PM
+ * Date: 8/24/14
+ * Time: 10:09 PM
  * To change this template use File | Settings | File Templates.
  */
-public class VehicleManager {
+public interface VehicleService {
 }

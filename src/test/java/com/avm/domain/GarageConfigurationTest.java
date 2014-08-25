@@ -28,4 +28,15 @@ public class GarageConfigurationTest extends AbstractTest {
         Assert.assertEquals("3", strings[2]);
         Assert.assertEquals("4", strings[3]);
     }
+
+    @Test
+    public void testGetCarCharge() throws Exception {
+        Assert.assertEquals("2.5", garageConfiguration.getChargeForCar());
+    }
+
+    @Test
+    public void testGetMotorcycleCharge() throws Exception {
+        Assert.assertEquals("1", garageConfiguration.getChargeForMotorcycle());
+    }
+
 }

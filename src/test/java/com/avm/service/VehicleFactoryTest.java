@@ -3,6 +3,7 @@ package com.avm.service;
 import com.avm.domain.Vehicle;
 import com.avm.domain.VehicleType;
 import com.avm.util.NumberPlateRegistry;
+import com.avm.util.VehicleFactory;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.avm.service;
+package com.avm.util;
 
 import com.avm.domain.Garage;
 import com.avm.domain.GarageConfiguration;

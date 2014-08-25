@@ -17,6 +17,12 @@ public class GarageConfiguration {
     @Value("${garage.levels.slotsperfloor}")
     private String slotsPerLevel;
 
+    @Value("${garage.charge.motorcar}")
+    private String chargeForCar;
+
+    @Value("${garage.charge.motorcycle}")
+    private String chargeForMotorcycle;
+
     public int getGarageLevels() {
         return Integer.parseInt(garageLevels);
     }
@@ -24,6 +30,14 @@ public class GarageConfiguration {
     public String[] getSlotsPerLevel() {
 
         return slotsPerLevel.split(",");
+    }
+
+    public String getChargeForCar() {
+        return chargeForCar;
+    }
+
+    public String getChargeForMotorcycle() {
+        return chargeForMotorcycle;
     }
 
     public void validateConfiguration() {

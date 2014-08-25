@@ -1,6 +1,7 @@
 package com.avm.service;
 
 import com.avm.domain.Garage;
+import com.avm.util.GarageBuilder;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created with IntelliJ IDEA.
  * User: amodmulay
- * Test class to test {@link GarageBuilder}
+ * Test class to test {@link com.avm.util.GarageBuilder}
  */
 public class GarageBuilderTest extends AbstractTest {
 
