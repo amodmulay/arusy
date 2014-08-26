@@ -1,6 +1,7 @@
 package com.avm.util;
 
 import com.avm.domain.GarageParkingSlot;
+import org.springframework.stereotype.Component;
 
 import java.util.LinkedList;
 
@@ -11,6 +12,8 @@ import java.util.LinkedList;
  * Time: 8:26 PM
  * To change this template use File | Settings | File Templates.
  */
+
+@Component
 public class ParkingSlotPool {
 
     private static LinkedList<GarageParkingSlot> emptySlot = new LinkedList<GarageParkingSlot>();
@@ -20,11 +23,11 @@ public class ParkingSlotPool {
     }
 
     /**
-     * Add a parking slot to the pool. Adding to the pool makes the slot available for reuse
+     * Add a parking slot to the pool. Adding to the pool makes the slot available for reuse by setting the emty flag and removning the vehicle from the
      *
      * @param garageParkingSlot
      */
-    public static void checkInSlot(final GarageParkingSlot garageParkingSlot) {
+    public void checkInSlot(final GarageParkingSlot garageParkingSlot) {
         garageParkingSlot.setEmpty(Boolean.TRUE);
         emptySlot.add(garageParkingSlot);
     }
@@ -34,22 +37,22 @@ public class ParkingSlotPool {
      *
      * @return
      */
-    public static GarageParkingSlot checkOutSlot() {
+    public GarageParkingSlot checkOutSlot() {
         GarageParkingSlot garageParkingSlot = emptySlot.removeFirst();
         garageParkingSlot.setEmpty(Boolean.FALSE);
         addToOccupiedList(garageParkingSlot);
         return garageParkingSlot;
     }
 
-    private static void addToOccupiedList(final GarageParkingSlot garageParkingSlot) {
+    private void addToOccupiedList(final GarageParkingSlot garageParkingSlot) {
         occupiedSlot.add(garageParkingSlot);
     }
 
-    public static int getEmptySlotSize() {
+    public int getEmptySlotSize() {
         return emptySlot.size();
     }
 
-    public static int getOccupiedSlotSize() {
+    public int getOccupiedSlotSize() {
         return occupiedSlot.size();
     }
 

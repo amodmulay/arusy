@@ -1,6 +1,7 @@
 package com.avm.util;
 
 import com.avm.domain.*;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,6 +9,9 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class VehicleFactory {
+
+    @Autowired
+    private NumberPlateRegistry numberPlateRegistry;
 
     private VehicleFactory() {
     }
@@ -22,7 +26,7 @@ public class VehicleFactory {
     public Vehicle getVehicleObject(final VehicleType vehicleType, final String numberPlate) throws NumberPlateRegistry.VehicleExistsException {
 
         NumberPlate newNumberPlate = new NumberPlate(numberPlate);
-        NumberPlateRegistry.registerNumberPlate(newNumberPlate);
+        numberPlateRegistry.registerNumberPlate(newNumberPlate);
         switch (vehicleType) {
             case CAR:
                 return new Car(newNumberPlate);
@@ -35,7 +39,7 @@ public class VehicleFactory {
         }
     }
 
-    public static void removeVehicle(final Vehicle vehicle) {
-        NumberPlateRegistry.removeNumberPlate(vehicle.getNumberPlate());
+    public void removeVehicle(final Vehicle vehicle) {
+        numberPlateRegistry.removeNumberPlate(vehicle.getNumberPlate());
     }
 }

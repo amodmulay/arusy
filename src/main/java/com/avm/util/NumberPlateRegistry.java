@@ -1,6 +1,7 @@
 package com.avm.util;
 
 import com.avm.domain.NumberPlate;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +12,7 @@ import java.util.List;
  * This class holds the list of all number plates that are registered into the garage system.
  * A number plate cannot exist more than once in this Garage System
  */
+@Component
 public class NumberPlateRegistry {
 
     private static List<NumberPlate> numbers = new ArrayList<NumberPlate>();
@@ -21,7 +23,7 @@ public class NumberPlateRegistry {
      * @param numberPlate
      * @throws VehicleExistsException throws a runtime exception if the vehicle number plate exists
      */
-    public static synchronized void registerNumberPlate(final NumberPlate numberPlate) throws VehicleExistsException {
+    public synchronized void registerNumberPlate(final NumberPlate numberPlate) throws VehicleExistsException {
         if (validateNumberPlateExixts(numberPlate)) {
             throw new VehicleExistsException(String.format("Vehicle number plate %s exists in the garage", numberPlate));
         }
@@ -33,7 +35,7 @@ public class NumberPlateRegistry {
      *
      * @param numberPlate
      */
-    public static void removeNumberPlate(final NumberPlate numberPlate) {
+    public void removeNumberPlate(final NumberPlate numberPlate) {
         numbers.remove(numberPlate);
     }
 

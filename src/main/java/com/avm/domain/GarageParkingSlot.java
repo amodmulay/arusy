@@ -11,6 +11,7 @@ public class GarageParkingSlot {
 
     private int slotId;
     private int garageLevel;
+    private Vehicle vehicle;
     private boolean isEmpty = Boolean.TRUE;
 
     /**
@@ -34,7 +35,15 @@ public class GarageParkingSlot {
         return isEmpty;
     }
 
-    public void setEmpty(boolean empty) {
+    public void setVehicle(final Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setEmpty(final boolean empty) {
         isEmpty = empty;
     }
 }

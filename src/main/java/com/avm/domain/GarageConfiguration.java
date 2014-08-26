@@ -40,6 +40,9 @@ public class GarageConfiguration {
         return chargeForMotorcycle;
     }
 
+    /**
+     * throws a reuntime exception if the configuration is not valid
+     */
     public void validateConfiguration() {
         if (null == garageLevels || null == slotsPerLevel)
             throw new IllegalStateException("Garage cannot exist without parking slots. Check config file");

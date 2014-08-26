@@ -28,4 +28,6 @@ public abstract class Vehicle {
     public NumberPlate getNumberPlate() {
         return numberPlate;
     }
+
+
 }

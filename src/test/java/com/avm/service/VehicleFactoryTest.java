@@ -18,7 +18,7 @@ public class VehicleFactoryTest extends AbstractTest {
     public void getUniqueVehicleTestGood() throws NumberPlateRegistry.VehicleExistsException {
         Vehicle vehicle = vehicleFactory.getVehicleObject(VehicleType.CAR, "MH12DE8428");
         Assert.assertEquals("MH12DE8428", vehicle.getNumberPlate().getNumber());
-        VehicleFactory.removeVehicle(vehicle);
+        vehicleFactory.removeVehicle(vehicle);
     }
 
     @Test(expected = NumberPlateRegistry.VehicleExistsException.class)
@@ -28,7 +28,7 @@ public class VehicleFactoryTest extends AbstractTest {
         try {
             vehicleFactory.getVehicleObject(VehicleType.CAR, "MH12DE8428");
         } catch (NumberPlateRegistry.VehicleExistsException e) {
-            VehicleFactory.removeVehicle(vehicle);
+            vehicleFactory.removeVehicle(vehicle);
             throw new NumberPlateRegistry.VehicleExistsException(e.getMessage());
         }
 
