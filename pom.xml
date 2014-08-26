@@ -30,5 +30,6 @@
             <artifactId>spring-test</artifactId>
             <version>4.0.0.RELEASE</version>
         </dependency>
+
     </dependencies>
 </project>

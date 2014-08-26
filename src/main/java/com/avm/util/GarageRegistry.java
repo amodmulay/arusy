@@ -10,6 +10,8 @@ import java.util.Map;
 /**
  * Created with IntelliJ IDEA.
  * User: amodmulay
+ * Register a parking slot into the registry of parked cars. This holds the real time
+ * data of which vehicle is parked at what location in the garage
  */
 @Component
 public class GarageRegistry {
@@ -28,5 +30,8 @@ public class GarageRegistry {
         return garageParkingSlotMap.get(numberPlate);
     }
 
+    public void resetGarageRegistry() {
+        garageParkingSlotMap = new HashMap<String, GarageParkingSlot>();
+    }
 
 }

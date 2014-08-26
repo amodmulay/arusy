@@ -26,7 +26,7 @@ public class ParkingSlotServiceImpl implements ParkingSlotService {
     }
 
     @Override
-    public int getAvailableSlotCount() {
+    public int getEmptySlotCount() {
         return parkingSlotPool.getEmptySlotSize();
     }
 

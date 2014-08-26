@@ -17,16 +17,14 @@ public class GarageConfigurationTest extends AbstractTest {
 
     @Test
     public void testGetGarageLevels() throws Exception {
-        Assert.assertEquals(4, garageConfiguration.getGarageLevels());
+        Assert.assertEquals(2, garageConfiguration.getGarageLevels());
     }
 
     @Test
     public void testGetSlotsPerLevel() throws Exception {
         String[] strings = garageConfiguration.getSlotsPerLevel();
-        Assert.assertEquals("1", strings[0]);
-        Assert.assertEquals("2", strings[1]);
-        Assert.assertEquals("3", strings[2]);
-        Assert.assertEquals("4", strings[3]);
+        Assert.assertEquals("2", strings[0]);
+        Assert.assertEquals("4", strings[1]);
     }
 
     @Test

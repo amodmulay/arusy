@@ -14,54 +14,54 @@ public interface GarageService {
     /**
      * Builds the garage based on the configuration
      */
-    void buildGardge();
+    void buildGarage();
 
     /**
      * Provides a place  by assigning a parking slot to the car
      *
-     * @param numberPlate
+     * @param numberPlate Vehicle number plate
      */
     void parkCar(final String numberPlate);
 
     /**
      * Removes the car form the parking registry and releases the parking slot resource.
      *
-     * @param numberPlate
+     * @param numberPlate Vehicle number plate
      */
     void removeCar(final String numberPlate);
 
     /**
      * Provides a place  by assigning a parking slot to the motorcycle
      *
-     * @param numberPlate
+     * @param numberPlate Vehicle number plate
      */
     void parkMotorcycle(final String numberPlate);
 
     /**
      * Removes the motorcycle form the parking registry and releases the parking slot resource.
      *
-     * @param numberPlate
+     * @param numberPlate Vehicle number plate
      */
     void removeMotorcycle(final String numberPlate);
 
     /**
      * Blocks a place  by assigning a parking slot to the blocking vehicle
      *
-     * @param numberPlate
+     * @param numberPlate Vehicle number plate
      */
     void parkBlockingVehicle(final String numberPlate);
 
     /**
      * Removes the blocking vehicle form the parking registry and releases the parking slot resource.
      *
-     * @param numberPlate
+     * @param numberPlate Vehicle number plate
      */
     void removeBlockingVehicle(final String numberPlate);
 
     /**
      * Provides the Garage parking slot associated with the vehicle
      *
-     * @param numberPlate
+     * @param numberPlate Vehicle number plate
      * @return GarageParkingSlot Object
      */
     GarageParkingSlot getVehicleLocation(final String numberPlate);
@@ -74,13 +74,6 @@ public interface GarageService {
     List<GarageParkingSlot> getAvailableGarageParkingSlots();
 
     /**
-     * Count of the number of slots configured in the Garage system
-     *
-     * @return slot count
-     */
-    int getNumberOfSlots();
-
-    /**
      * @return enpty slot count
      */
     int getNumberOfEmptySlots();
@@ -90,4 +83,10 @@ public interface GarageService {
      */
     int getNumberOfOccupiedSlots();
 
+    /**
+     * Pretty prints the garage status
+     */
+    void prettyPrint();
+
+    void prettyPrintConfig();
 }

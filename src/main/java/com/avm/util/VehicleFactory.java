@@ -1,6 +1,7 @@
 package com.avm.util;
 
 import com.avm.domain.*;
+import com.avm.exception.GarageException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -17,13 +18,13 @@ public class VehicleFactory {
     }
 
     /**
-     * @param vehicleType
-     * @param numberPlate
+     * @param vehicleType type of vehicle
+     * @param numberPlate Number plate of the vehicle
      * @return Returns a new Vehicle instance
-     * @throws NumberPlateRegistry.VehicleExistsException
+     * @throws com.avm.exception.GarageException
      *          If vehicle number plate exists then throws this exception
      */
-    public Vehicle getVehicleObject(final VehicleType vehicleType, final String numberPlate) throws NumberPlateRegistry.VehicleExistsException {
+    public Vehicle getVehicleObject(final VehicleType vehicleType, final String numberPlate) throws GarageException {
 
         NumberPlate newNumberPlate = new NumberPlate(numberPlate);
         numberPlateRegistry.registerNumberPlate(newNumberPlate);

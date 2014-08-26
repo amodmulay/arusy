@@ -1,6 +1,7 @@
 package com.avm.util;
 
 import com.avm.domain.NumberPlate;
+import com.avm.exception.GarageException;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,17 +16,18 @@ import java.util.List;
 @Component
 public class NumberPlateRegistry {
 
-    private static List<NumberPlate> numbers = new ArrayList<NumberPlate>();
+    private List<NumberPlate> numbers = new ArrayList<NumberPlate>();
 
     /**
      * Registers a number into the registry and also performs a uniqueness check
      *
-     * @param numberPlate
-     * @throws VehicleExistsException throws a runtime exception if the vehicle number plate exists
+     * @param numberPlate Vehicle number plate
+     * @throws com.avm.exception.GarageException
+     *          throws a runtime exception if the vehicle number plate exists
      */
-    public synchronized void registerNumberPlate(final NumberPlate numberPlate) throws VehicleExistsException {
+    public synchronized void registerNumberPlate(final NumberPlate numberPlate) throws GarageException {
         if (validateNumberPlateExixts(numberPlate)) {
-            throw new VehicleExistsException(String.format("Vehicle number plate %s exists in the garage", numberPlate));
+            throw new GarageException(String.format("Vehicle number plate: %s exists in the garage", numberPlate.getNumber()));
         }
         numbers.add(numberPlate);
     }
@@ -33,19 +35,18 @@ public class NumberPlateRegistry {
     /**
      * removes numberplate from the registry
      *
-     * @param numberPlate
+     * @param numberPlate Vehicle number plate
      */
     public void removeNumberPlate(final NumberPlate numberPlate) {
         numbers.remove(numberPlate);
     }
 
-    private static boolean validateNumberPlateExixts(final NumberPlate numberPlate) {
+    private boolean validateNumberPlateExixts(final NumberPlate numberPlate) {
         return numbers.contains(numberPlate);
     }
 
-    public static class VehicleExistsException extends RuntimeException {
-        public VehicleExistsException(final String format) {
-        }
+    public void resetNumberPlateRegistry() {
+        numbers = new ArrayList<NumberPlate>();
     }
 
 }
