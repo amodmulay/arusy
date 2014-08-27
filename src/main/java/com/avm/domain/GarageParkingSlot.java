@@ -5,7 +5,7 @@ package com.avm.domain;
  * <p/>
  * Garage Parking slot represents a single parking space on a
  * {@link GarageLevel} It contains information about the number assigned to it,
- * the level it belongs to and if it is occupied or empty
+ * the level it belongs to and if it is occupied or empty. It also holds the vehicle object if it is occupied
  */
 public class GarageParkingSlot {
 
@@ -15,8 +15,8 @@ public class GarageParkingSlot {
     private boolean isEmpty = Boolean.TRUE;
 
     /**
-     * @param slotId
-     * @param slotLevel
+     * @param slotId    id of the slot
+     * @param slotLevel level for the slot
      */
     public GarageParkingSlot(final int slotId, final int slotLevel) {
         this.slotId = slotId;

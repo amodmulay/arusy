@@ -33,7 +33,7 @@ public class GarageBuilder {
     /**
      * Builds the garage based on the configuration provided in the configuration file
      */
-    public Garage buildGarage() {
+    public synchronized Garage buildGarage() {
         resetGarage();
         //first validate the configuration settings
         garageConfiguration.validateConfiguration();

@@ -26,7 +26,7 @@ public class NumberPlateRegistry {
      *          throws a runtime exception if the vehicle number plate exists
      */
     public synchronized void registerNumberPlate(final NumberPlate numberPlate) throws GarageException {
-        if (validateNumberPlateExixts(numberPlate)) {
+        if (validateNumberPlateExists(numberPlate)) {
             throw new GarageException(String.format("Vehicle number plate: %s exists in the garage", numberPlate.getNumber()));
         }
         numbers.add(numberPlate);
@@ -41,7 +41,7 @@ public class NumberPlateRegistry {
         numbers.remove(numberPlate);
     }
 
-    private boolean validateNumberPlateExixts(final NumberPlate numberPlate) {
+    private boolean validateNumberPlateExists(final NumberPlate numberPlate) {
         return numbers.contains(numberPlate);
     }
 

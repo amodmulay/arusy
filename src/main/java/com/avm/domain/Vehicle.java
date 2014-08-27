@@ -12,6 +12,8 @@ public abstract class Vehicle {
     protected VehicleType type;
     protected NumberPlate numberPlate;
     protected float chargePerHour;
+    //Can be used,for billing
+    protected long checkinTime;
 
     public Float getChargePerHour() {
         return chargePerHour;
@@ -27,6 +29,14 @@ public abstract class Vehicle {
 
     public NumberPlate getNumberPlate() {
         return numberPlate;
+    }
+
+    public long getCheckinTime() {
+        return checkinTime;
+    }
+
+    public void setCheckinTime(long checkinTime) {
+        this.checkinTime = checkinTime;
     }
 
 

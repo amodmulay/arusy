@@ -26,7 +26,7 @@ public class ParkingSlotPool {
      *
      * @param garageParkingSlot new or recycled parking slot
      */
-    public synchronized void checkInSlot(final GarageParkingSlot garageParkingSlot) {
+    public void checkInSlot(final GarageParkingSlot garageParkingSlot) {
         garageParkingSlot.setEmpty(Boolean.TRUE);
         emptySlot.add(garageParkingSlot);
         occupiedSlot.remove(garageParkingSlot);
@@ -37,7 +37,7 @@ public class ParkingSlotPool {
      *
      * @return empty GarageParkingSlot
      */
-    public synchronized GarageParkingSlot checkOutSlot() {
+    public GarageParkingSlot checkOutSlot() {
         if (emptySlot.size() == 0) {
             throw new GarageException("Garage is full. Better luck next time!");
         }

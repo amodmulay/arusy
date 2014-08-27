@@ -6,7 +6,7 @@ import java.util.List;
  * Created with IntelliJ IDEA.
  * User: amodmulay
  * Represents a parking building. This is hierarchically the top most in the pecking order.
- * It holds the levels and the total count of parking spots/slots
+ * It holds the levels
  */
 public class Garage {
 

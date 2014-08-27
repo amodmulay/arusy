@@ -41,6 +41,7 @@ public class GarageServiceImpl implements GarageService {
     @Override
     public void parkCar(final String numberPlate) {
         Vehicle car = vehicleFactory.getVehicleObject(VehicleType.CAR, numberPlate);
+        car.setCheckinTime(System.currentTimeMillis());
         parkVehicle(car);
     }
 
@@ -52,6 +53,7 @@ public class GarageServiceImpl implements GarageService {
     @Override
     public void parkMotorcycle(String numberPlate) {
         Vehicle motorcycle = vehicleFactory.getVehicleObject(VehicleType.MOTORCYCLE, numberPlate);
+        motorcycle.setCheckinTime(System.currentTimeMillis());
         parkVehicle(motorcycle);
     }
 
@@ -63,6 +65,7 @@ public class GarageServiceImpl implements GarageService {
     @Override
     public void parkBlockingVehicle(String numberPlate) {
         Vehicle blockingVehicle = vehicleFactory.getVehicleObject(VehicleType.BLOCKING, numberPlate);
+        blockingVehicle.setCheckinTime(System.currentTimeMillis());
         parkVehicle(blockingVehicle);
     }
 
@@ -95,7 +98,7 @@ public class GarageServiceImpl implements GarageService {
         return parkingSlotService.getOccupiedSlotCount();
     }
 
-    private void parkVehicle(final Vehicle vehicle) {
+    private synchronized void parkVehicle(final Vehicle vehicle) {
         GarageParkingSlot garageParkingSlot = parkingSlotService.getParkingSlot();
         garageParkingSlot.setVehicle(vehicle);
         garageRegistry.register(vehicle, garageParkingSlot);
